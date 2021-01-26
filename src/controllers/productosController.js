@@ -78,6 +78,7 @@ module.exports = {
     },
 
     productoSubmit: function (req,res) {
+        let idUsuario = req.session.usuarioLogueado.id;
         if (req.session.usuarioLogueado == undefined) {
             res.redirect("/");
         }
@@ -87,10 +88,11 @@ module.exports = {
             marca: req.body.marca,
             img_url: req.body.imagen,
             precio: req.body.precio,
-            categoria_id: req.body.categoria            
+            categoria_id: req.body.categoria,
+            usuario_id: idUsuario            
             })
             .then(Result =>{
-                return res.redirect('/')
+                return res.render('misProductos', {title:'Mis Productos'})
             })
     },
 
