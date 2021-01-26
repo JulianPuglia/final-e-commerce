@@ -92,7 +92,7 @@ module.exports = {
             usuario_id: idUsuario            
             })
             .then(Result =>{
-                return res.render('misProductos', {title:'Mis Productos'})
+                return res.redirect('/productos/misProductos')
             })
     },
 
