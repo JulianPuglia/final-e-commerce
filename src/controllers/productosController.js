@@ -127,7 +127,13 @@ module.exports = {
         }
 
         let id = req.params.id;
-        db.Producto.update(req.body,
+        db.Producto.update({
+            nombre: req.body.nombre,
+            marca: req.body.marca,
+            img_url: req.body.imagen,
+            precio: req.body.precio,
+            categoria_id: req.body.categoria
+            },
             {
                 where: {
                     id:id
